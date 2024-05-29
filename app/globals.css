@@ -1,0 +1,106 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+
+@layer base {
+  :root {
+    --portal-opacity: 0.25;
+    --background: 0 0% 100%;
+    --foreground: 240 10% 3.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 240 10% 3.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 240 10% 3.9%;
+    --primary: 240 5.9% 10%;
+    --primary-foreground: 0 0% 98%;
+    --secondary: 240 4.8% 95.9%;
+    --secondary-foreground: 240 5.9% 10%;
+    --muted: 240 4.8% 95.9%;
+    --muted-foreground: 240 3.8% 46.1%;
+    --lime: 72deg 98.84% 66.27%;
+    --lime-foreground: 0deg 0% 0%;
+    --tomato: 8.81deg 100% 65.29%;
+    --tomato-foreground: 0deg 0% 0%;
+    --accent: 240 4.8% 95.9%;
+    --accent-foreground: 240 5.9% 10%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 240 5.9% 90%;
+    --input: 240 5.9% 90%;
+    --ring: 240 5.9% 10%;
+    --radius: 0.5rem;
+    --ds-background-100: #fff;
+    --ds-backdrop-100: rgba(0,0,0,.4);
+    --ds-backdrop-200: rgba(0,0,0,.25);
+  }
+
+  .dark {
+    --portal-opacity: .75;
+    --background: 240 10% 3.9%;
+    --foreground: 0 0% 98%;
+    --card: 240 10% 3.9%;
+    --card-foreground: 0 0% 98%;
+    --popover: 240 10% 3.9%;
+    --popover-foreground: 0 0% 98%;
+    --primary: 0 0% 98%;
+    --primary-foreground: 240 5.9% 10%;
+    --secondary: 240 3.7% 15.9%;
+    --secondary-foreground: 0 0% 98%;
+    --muted: 240 3.7% 15.9%;
+    --muted-foreground: 240 5% 64.9%;
+    --lime: 72deg 98.84% 66.27%;
+    --lime-foreground: 0deg 0% 0%;
+    --tomato: 8.81deg 100% 65.29%;
+    --tomato-foreground: 0deg 0% 0%;
+    --accent: 240 3.7% 15.9%;
+    --accent-foreground: 0 0% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 240 3.7% 15.9%;
+    --input: 240 3.7% 15.9%;
+    --ring: 240 4.9% 83.9%;
+    --ds-background-100: #0a0a0a;
+    --ds-backdrop-100: rgba(0,0,0,.4);
+    --ds-backdrop-200: rgba(0,0,0,.75);
+  }
+}
+
+
+* {
+  border-color: hsl(var(--border));
+}
+
+.primary-hero-bg {
+  background: linear-gradient(45deg,
+      rgba(255, 255, 255, 0) 4%,
+      rgba(220, 254, 84, 1) 4%,
+      rgba(220, 254, 84, 1) 96%,
+      rgba(255, 255, 255, 0) 96%);
+}
+
+.secondary-hero-bg {
+  background: linear-gradient(45deg,
+      rgba(255, 255, 255, 0) 4%,
+      rgba(0, 104, 131, 1) 4%,
+      rgba(0, 104, 131, 1) 96%,
+      rgba(255, 255, 255, 0) 96%);
+}
+
+
+.bg-backdrop-1 {
+  z-index: 111;
+  position: fixed;
+  width: 100%;
+  margin: 0px !important;
+}
+
+.bg-backdrop-1 {
+  background-color: var(--ds-backdrop-100);
+}
+
+
+.rust-modal {
+  z-index: 4999 !important;
+}
