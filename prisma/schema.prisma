@@ -13,16 +13,16 @@ datasource db {
 }
 
 model User {
-  id            String       @id @default(cuid())
+  id            String    @id @default(cuid())
   name          String?
-  username      String?      @unique
+  username      String?   @unique
   gh_username   String?
   gitProvider   String?
-  email         String?      @unique
+  email         String?   @unique
   emailVerified DateTime?
   image         String?
-  createdAt     DateTime     @default(now())
-  updatedAt     DateTime     @updatedAt
+  createdAt     DateTime  @default(now())
+  updatedAt     DateTime  @updatedAt
   accounts      Account[]
   wallets       Wallet[]
   sessions      Session[]
@@ -72,9 +72,7 @@ model VerificationToken {
 
 model Wallet {
   address   String   @id
-  hexAddress String
   network   String?
-  chainId   Int?
   userId    String
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
@@ -97,4 +95,3 @@ model Token {
 
   @@index([userId])
 }
-

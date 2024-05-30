@@ -3,9 +3,19 @@ import prisma from '@/dashboard/lib/prisma';
 import { NextRequest, NextResponse } from 'next/server';
 import SiwsSession from '@/dashboard/lib/siws-session';
 import { getSession } from '@/dashboard/lib/auth';
-import { generateNonce } from '@/siws-extender/utils';
-import { SiwsMessage } from '@talismn/siws';
-import { SiwsErrorType } from '@/siws-extender/types';
+import { generateNonce } from '@/siws-app/siws-extender/utils';
+import { SiwsMessage, verifySIWS } from '@talismn/siws';
+import { SiwsErrorType } from '@/siws-app/siws-extender/types';
+
+// Verify SIWS
+const verifySIWSMessage = async (message: string, signature: string, address: string) => {
+  console.log("message", message);
+  try {
+    return await verifySIWS(message, signature, address);
+  } catch (e) {
+    throw new Error('Invalid signature!');
+  }
+};
 
 export const GET = async (req: NextRequest): Promise<NextResponse> => {
   const session = await getSession();
@@ -21,18 +31,13 @@ export const PUT = async (req: NextRequest): Promise<NextResponse> => {
 };
 
 export const POST = async (req: NextRequest) => {
-  const { message, signature } = await req.json();
+  const { message, signature, address } = await req.json();
 
   const session = await SiwsSession.fromRequest(req);
-  //console.log('---session at 37', session);
+  console.log('---session at 37', session);
 
   try {
-    const siwsMessage = new SiwsMessage(message);
-    const { data: fields } = await siwsMessage.verify({
-      signature,
-      nonce: session.nonce,
-      address: session.address,
-    });
+    const fields = await verifySIWSMessage(message, signature, address);
 
     if (fields.nonce !== session.nonce) {
       return tap(new NextResponse('Invalid nonce.', { status: 422 }), (res: any) =>
@@ -40,7 +45,6 @@ export const POST = async (req: NextRequest) => {
       );
     }
     session.address = fields.address;
-    session.chainId = 1;
     session.nonce = undefined;
     session.userId = fields.address;
   } catch (error) {

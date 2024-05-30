@@ -3,7 +3,7 @@ import { randomStringForEntropy } from '@stablelib/random';
 /**
  * This method leverages a native CSPRNG with support for both browser and Node.js
  * environments in order generate a cryptographically secure nonce for use in the
- * SiwaMessage in order to prevent replay attacks.
+ * SiwsMessage in order to prevent replay attacks.
  *
  * 96 bits has been chosen as a number to sufficiently balance size and security considerations
  * relative to the lifespan of it's usage.

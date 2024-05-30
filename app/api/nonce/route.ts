@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 import crypto from 'crypto';
 import SiwsSession, { COOKIE_NAME } from '@/siws-app/lib/siws-session';
-import { generateNonce } from '@/siws-extender/utils';
+import { generateNonce } from '@/siws-app/siws-extender/utils';
 import { tap } from '@/siws-app/lib/utils';
 
 

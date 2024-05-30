@@ -12,7 +12,7 @@ import { hashToken } from './crypto';
 import { ratelimit } from './upstash';
 import credentialsProvider from 'next-auth/providers/credentials';
 import { getCsrfToken } from 'next-auth/react';
-import { SiwsMessage } from '@talismn/siws';
+import {  verifySIWS } from '@talismn/siws';
 
 const VERCEL_DEPLOYMENT = !!process.env.VERCEL_URL;
 
@@ -62,22 +62,21 @@ export const authOptions: NextAuthOptions = {
       },
       async authorize(credentials, req) {
         try {
-          const siws = new SiwsMessage(JSON.parse(credentials?.message || '{}'));
-          const nextAuthUrl = new URL(process.env.NEXTAUTH_URL);
 
-          // VerifyParams
-          const result = await siws.verify({
-            signature: credentials?.signature || '',
-            domain: nextAuthUrl.host,
-            nonce: await getCsrfToken({ req }),
-          });
+          const result = await verifySIWS(credentials?.message, credentials?.signature, credentials?.address).then((res) =>{
+            console.log("res", res)
+            return res
+          }).catch((e) => {
+            console.log("e", e)
+            return e
+          })
 
           console.log('result', result);
           // success
-          if (result.success) {
+          if (result && result.nonce) {
             // Check if wallet exists
             let wallet = await prisma.wallet.findUnique({
-              where: { address: result.data.address },
+              where: { address: result.address },
             });
 
             // If wallet does not exist, check for user or create user and wallet
@@ -86,16 +85,15 @@ export const authOptions: NextAuthOptions = {
               let user = await prisma.user.create({
                 data: {
                   // Assuming 'id' field is auto-generated or you have a method to generate it
-                  name: result.data.address,
-                  email: `${result.data.address}@siws.web3`, // Arbitrary temp email
+                  name: result.address,
+                  email: `${result.address}@siws.web3`, // Arbitrary temp email
                 },
               });
 
               // Create wallet associated with the found or newly created user
               let userWallet = await prisma.wallet.create({
                 data: {
-                  address: result.data.address,
-                  chainId: result.data.chainId,
+                  address: result.address,
                   userId: user.id, // Use the user's ID here
                 },
               });

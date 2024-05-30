@@ -21,20 +21,17 @@ export const SESSION_OPTIONS = {
 
 export type ISiwsSession = {
   nonce?: string;
-  chainId?: number;
   address?: string;
   userId?: string;
 };
 
 class SiwsSession {
   nonce?: string;
-  chainId?: number;
   address?: string;
   userId?: string;
 
   constructor(session?: ISiwsSession) {
     this.nonce = session?.nonce;
-    this.chainId = session?.chainId;
     this.address = session?.address;
     this.userId = session?.userId;
   }
@@ -55,7 +52,6 @@ class SiwsSession {
 
   clear(res: NextResponse | ResponseCookies): Promise<void> {
     this.nonce = undefined;
-    this.chainId = undefined;
     this.address = undefined;
     this.userId = undefined;
 
@@ -66,7 +62,6 @@ class SiwsSession {
     return {
       nonce: this.nonce,
       address: this.address,
-      chainId: this.chainId,
       userId: this.userId,
     };
   }
