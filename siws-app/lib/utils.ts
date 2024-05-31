@@ -12,7 +12,7 @@ export function cn(...inputs: ClassValue[]) {
 export function constructMetadata({
   title = 'DotStack',
   description = 'The Next.js FullStack Template for Polkadot.',
-  image = '/fuse-og.png',
+  image = '/dotstack-og.png',
   icons = '/favicon.ico',
   noIndex = false,
 }: {

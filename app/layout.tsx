@@ -13,7 +13,7 @@ export const metadata: Metadata = {
     description: "Sign In With Substrate",
     images: [
       {
-        url: "/fuse-og.png",
+        url: "/dotstack-og.png",
       },
     ],
   },
@@ -21,7 +21,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "SIWS",
     description: "Sign In With Substrate",
-    images: ["/fuse-og.png"],
+    images: ["/dotstack-og.png"],
     creator: "@headline_crypto",
   },
   metadataBase: new URL("https://dotstack.xyz"),
