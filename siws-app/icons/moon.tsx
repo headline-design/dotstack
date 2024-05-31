@@ -1,4 +1,4 @@
-export const IconMoon = () => (
+const IconMoon = () => (
     <svg
       data-testid="geist-icon"
       height={16}
@@ -15,3 +15,5 @@ export const IconMoon = () => (
       />
     </svg>
   )
+
+export default IconMoon;

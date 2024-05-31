@@ -49,7 +49,7 @@ const GettingStartedView = () => {
             variant={"ghost"}
             onClick={() =>
               handleCopy(
-                "git clone https://github.com/headline-design/react-fuse.git",
+                "git clone https://github.com/headline-design/dotstack.git",
                 "clone"
               )
             }
@@ -57,7 +57,7 @@ const GettingStartedView = () => {
             {copiedCommand === "clone" ? <IconTick /> : <IconCopy />}
           </Button>
           <code>
-            git clone https://github.com/headline-design/react-fuse.git
+            git clone https://github.com/headline-design/dotstack.git
           </code>
         </div>
 
@@ -70,12 +70,12 @@ const GettingStartedView = () => {
             size="sm"
             className="absolute right-1 top-1"
             variant={"ghost"}
-            onClick={() => handleCopy("cd react-fuse\nnpm install", "install")}
+            onClick={() => handleCopy("cd dotstack\nnpm install", "install")}
           >
             {copiedCommand === "install" ? <IconTick /> : <IconCopy />}
           </Button>
           <code>
-            cd react-fuse
+            cd dotstack
             <br />
             npm install
           </code>

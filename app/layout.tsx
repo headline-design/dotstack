@@ -24,7 +24,7 @@ export const metadata: Metadata = {
     images: ["/fuse-og.png"],
     creator: "@headline_crypto",
   },
-  metadataBase: new URL("https://react-fuse-iota.vercel.app"),
+  metadataBase: new URL("https://dotstack.xyz"),
 };
 
 export default function RootLayout({

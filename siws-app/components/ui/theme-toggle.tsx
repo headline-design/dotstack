@@ -1,8 +1,7 @@
 import { useTheme } from 'next-themes';
 import { Button } from './button';
 import React from 'react';
-import { IconMoon } from '@/siws-app/icons/moon';
-import { IconSun } from '@/siws-app/icons/sun';
+import { IconMoon, IconSun } from '@/siws-app/icons';
 
 const ThemeToggle = () => {
   const { resolvedTheme, setTheme } = useTheme();

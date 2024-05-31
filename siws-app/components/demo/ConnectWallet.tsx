@@ -1,5 +1,5 @@
 import { useState } from "react"
-import { Button } from "@/dashboard/components/ui/button"
+import { Button } from "@/siws-app/components/ui/button"
 import { InjectedAccountWithMeta } from "@polkadot/extension-inject/types"
 
 type Props = {

@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { InjectedAccountWithMeta } from "@polkadot/extension-inject/types";
-import { Button } from "@/dashboard/components/ui/button";
+import { Button } from "@/siws-app/components/ui/button";
 import { useAzeroID } from "@/dashboard/context/AzeroIDResolver";
 import { useToast } from "../ui/use-toast";
 import { Account } from "./Account";
@@ -30,7 +30,7 @@ export const SignIn: React.FC<Props> = ({  onCancel, onSignedIn }) => {
       <p className="text-white text-lg">Sign In</p>
       <p className="text-stone-500">Select an account to sign in with.</p>
       <div className="my-4 flex flex-col h-full overflow-y-auto gap-3 p-2 rounded-lg border border-stone-800">
-        {accounts?.length > 0 ? (
+        {accounts?.length ?? 0 > 0 ? (
           accounts?.map((account) => (
             <Account
               key={account.address}

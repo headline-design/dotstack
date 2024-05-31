@@ -7,7 +7,7 @@ module.exports = {
   content: [
     "app/**/*.{ts,tsx}",
     "components/**/*.{ts,tsx}",
-    "./siws-app/**/*.{js,ts,jsx,tsx,mdx}"
+    "./siws-app/**/**/*.{js,ts,jsx,tsx,mdx}"
   ],
   theme: {
     container: {

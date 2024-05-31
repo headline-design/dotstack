@@ -6,6 +6,18 @@ import { Analytics } from "@vercel/analytics/react";
 import { AzeroIDResolverProvider } from "@/dashboard/context/AzeroIDResolver";
 import React, { lazy, useMemo, useState } from "react";
 import Web3Provider from "@/dashboard/context/web3Context";
+import ScrollToTop from "@/siws-app/components/scroll-to-top";
+import ErrorBoundary from "@/siws-app/lib/error-boundary";
+import ProviderLayout from "@/siws-app/providers/provider-layout";
+import AboutView from "@/siws-app/views/about-view";
+import ContactView from "@/siws-app/views/contact-view";
+import { ErrorView } from "@/siws-app/views/error-view";
+import FeaturesView from "@/siws-app/views/features-view";
+import GettingStartedView from "@/siws-app/views/getting-started-view";
+import MainView from "@/siws-app/views/main-view";
+import PricingView from "@/siws-app/views/pricing-view";
+import PrivacyView from "@/siws-app/views/privacy-view";
+import TermsView from "@/siws-app/views/terms-view";
 
 import {
   createBrowserRouter,
@@ -15,17 +27,8 @@ import {
   Outlet,
   useLocation,
 } from "react-router-dom";
-import GettingStartedView from "./views/getting-started-view";
-import TermsView from "./views/terms-view";
-import PrivacyView from "./views/privacy-view";
-import { ErrorView } from "./views/error-view";
-import ProviderLayout from "./providers/provider-layout";
-import ScrollToTop from "./components/scroll-to-top";
-import Home from "./views/Home";
-import ErrorBoundary from "./lib/error-boundary";
 
 function App(queryClient) {
-
   const routes = useMemo(
     () => [
       <Route
@@ -40,31 +43,34 @@ function App(queryClient) {
           </ProviderLayout>
         }
       >
-        <Route index element={<Home />} />
+        <Route index element={<MainView />} />
+        <Route path="/pricing/*" element={<PricingView />} />
+        <Route path="/contact/*" element={<ContactView />} />
+        <Route path="/features/*" element={<FeaturesView />} />
+        <Route path="/about/*" index element={<AboutView />} />
         <Route path="/getting-started/*" element={<GettingStartedView />} />
         <Route path="/terms/*" element={<TermsView />} />
         <Route path="/privacy/*" element={<PrivacyView />} />
       </Route>,
       <Route key="error" path="*" element={<ErrorView />} />,
     ],
-    [queryClient],
+    [queryClient]
   );
 
   const memoizedRouter = useMemo(
     () => createBrowserRouter(createRoutesFromElements(routes)),
-    [routes],
+    [routes]
   );
 
   return (
     <AzeroIDResolverProvider>
-    <Web3Provider>
-      <Analytics />
-              <RouterProvider router={memoizedRouter} />
-              <Toaster />
-        </Web3Provider>
-      </AzeroIDResolverProvider>
+      <Web3Provider>
+        <Analytics />
+        <RouterProvider router={memoizedRouter} />
+        <Toaster />
+      </Web3Provider>
+    </AzeroIDResolverProvider>
   );
 }
 
 export default App;
-

@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import ThemeToggle from "../components/ui/theme-toggle";
+import { DotStackTypelogo } from "../icons/dotstack_typelogo";
 
 export const Header = () => {
 
@@ -8,7 +9,7 @@ export const Header = () => {
       <div className="container flex h-14 max-w-screen-2xl items-center">
         <Link className="mr-6 flex items-center space-x-2 text" to="/">
           <span className="sr-only">DotStack</span>
-          <span className="font-bold sm:inline-block">DotStack</span>
+          <DotStackTypelogo className="font-bold sm:inline-block"/>
         </Link>
         <nav className="hidden ml-auto sm:flex gap-4 sm:gap-6">
           <Link

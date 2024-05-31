@@ -1,4 +1,4 @@
-export const IconSun = () => (
+const IconSun = () => (
     <svg
       data-testid="geist-icon"
       height={16}
@@ -15,3 +15,5 @@ export const IconSun = () => (
       />
     </svg>
   )
+
+export default IconSun

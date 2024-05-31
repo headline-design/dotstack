@@ -1,5 +1,5 @@
 import { Demo } from "@/dashboard/components/demo"
-import { Button } from "@/dashboard/components/ui/button"
+import { Button } from "@/siws-app/components/ui/button"
 import { W3FLogo } from "@/dashboard/components/assets/W3FLogo"
 import { MadeByTalisman } from "@/dashboard/components/assets/MadeByTalisman"
 import { TalismanLogo } from "@/dashboard/components/assets/TalismanLogo"
@@ -9,8 +9,8 @@ export default function Home() {
     <main className={`flex min-h-screen flex-col items-center justify-between py-24 px-4 lg:px-24`}>
       <div className="w-full max-w-4xl flex gap-8 flex-col lg:flex-row items-center lg:items-start">
         <div className="w-full p-4 flex flex-col items-center lg:items-start gap-2 text-center lg:text-left h-full lg:min-h-[384px]">
-          <h1 className="text-white text-5xl font-medium font-unbounded">SIWS</h1>
-          <p className="text-white text-lg max-w-md">
+          <h1 className="text-foreground  text-5xl font-medium font-unbounded">SIWS</h1>
+          <p className="text-muted-foreground  text-lg max-w-md">
             Sign-in with Substrate, an authentication standard for signing-in with a Substrate
             account.
           </p>
@@ -32,13 +32,12 @@ export default function Home() {
               </Button>
             </a>
           </div>
-          <div className="text-white mt-8 lg:mt-auto grid grid-cols-2 items-center gap-8 max-w-[320px] px-4">
+          <div className="text-muted-foreground  mt-8 lg:mt-auto grid grid-cols-2 items-center gap-8 max-w-[320px] px-4">
             <W3FLogo />
             <TalismanLogo />
           </div>
         </div>
         <div className="w-full max-w-[380px] select-none">
-          Demo here
           <Demo />
         </div>
       </div>
