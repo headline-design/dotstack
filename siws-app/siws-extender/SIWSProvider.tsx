@@ -1,9 +1,9 @@
-import { ReactNode, useContext, useState, useEffect } from "react";
+import { ReactNode, useState, useEffect } from "react";
 import { useQuery } from "@tanstack/react-query";
 import { SIWSContext, SIWSConfig, StatusState, SIWSSession } from "./SIWSContext";
 import { InjectedAccountWithMeta } from "@polkadot/extension-inject/types";
 import { useAzeroID } from "@/dashboard/context/AzeroIDResolver";
-import { Address, SiwsMessage, verifySIWS } from "@talismn/siws";
+import { Address, SiwsMessage, } from "@talismn/siws";
 import { useToast } from "../components/ui/use-toast";
 import { SIWS_HOSTNAME, SIWS_URI } from "../lib/constants";
 import { ToastAction } from "../components/ui/toast";

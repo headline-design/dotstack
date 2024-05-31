@@ -1,6 +1,5 @@
 "use client";
 
-import "@/dashboard/styles/globals.css";
 import { Toaster } from "@/dashboard/components/ui/toaster";
 import { Analytics } from "@vercel/analytics/react";
 import { AzeroIDResolverProvider } from "@/dashboard/context/AzeroIDResolver";

@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import "./globals.css";
+import "@/dashboard/styles/globals.css";
 import App from "./app";
 import { inter, unbounded } from "@/dashboard/components/fonts"
 import ClientBoundary from "@/dashboard/client-boundary";

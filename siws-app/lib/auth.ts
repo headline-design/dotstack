@@ -218,7 +218,7 @@ export const authOptions: NextAuthOptions = {
         account?.provider === 'github' ||
         account?.provider === 'twitter' ||
         account?.provider === 'discord' ||
-        account?.provider === 'substrate'
+        account?.provider === 'Substrate'
       ) {
         const userExists: any = await prisma.user.findUnique({
           where: { email: user.email },

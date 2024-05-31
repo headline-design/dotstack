@@ -4,7 +4,7 @@ import { NextRequest, NextResponse } from 'next/server';
 import SiwsSession from '@/dashboard/lib/siws-session';
 import { getSession } from '@/dashboard/lib/auth';
 import { generateNonce } from '@/siws-app/siws-extender/utils';
-import { SiwsMessage, verifySIWS } from '@talismn/siws';
+import { verifySIWS } from '@talismn/siws';
 import { SiwsErrorType } from '@/siws-app/siws-extender/types';
 
 // Verify SIWS
@@ -34,7 +34,6 @@ export const POST = async (req: NextRequest) => {
   const { message, signature, address } = await req.json();
 
   const session = await SiwsSession.fromRequest(req);
-  console.log('---session at 37', session);
 
   try {
     const fields = await verifySIWSMessage(message, signature, address);

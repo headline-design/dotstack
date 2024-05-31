@@ -192,8 +192,6 @@ const Web3ChildProvider: FC<PropsWithChildren<{}>> = ({ children }) => {
       address: string;
     }) => {
 
-      console.log("creddy---message", message, signature, address);
-
       return signIn("credentials", {
         message,
         address,

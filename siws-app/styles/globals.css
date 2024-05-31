@@ -48,11 +48,6 @@
   color: transparent;
 }
 
-
-
-
-
-
 @layer base {
   :root {
     --portal-opacity: 0.25;
@@ -120,23 +115,6 @@
 * {
   border-color: hsl(var(--border));
 }
-
-.primary-hero-bg {
-  background: linear-gradient(45deg,
-      rgba(255, 255, 255, 0) 4%,
-      rgba(220, 254, 84, 1) 4%,
-      rgba(220, 254, 84, 1) 96%,
-      rgba(255, 255, 255, 0) 96%);
-}
-
-.secondary-hero-bg {
-  background: linear-gradient(45deg,
-      rgba(255, 255, 255, 0) 4%,
-      rgba(0, 104, 131, 1) 4%,
-      rgba(0, 104, 131, 1) 96%,
-      rgba(255, 255, 255, 0) 96%);
-}
-
 
 .bg-backdrop-1 {
   z-index: 111;
