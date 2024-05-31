@@ -1,7 +1,7 @@
 /* eslint-disable @next/next/no-img-element */
 import { Link } from "react-router-dom";
 import { ButtonLink } from "@/siws-app/components/ui/button-link";
-import { IconGithub, IconShield } from "../icons";
+import { IconGithub, IconShieldGlobal } from "../icons";
 import { signOut, useSession } from "next-auth/react";
 import SIWSDetails from "./siws-details";
 import DemoHome from "./demo-home";
@@ -23,15 +23,21 @@ export default function MainView2() {
                   The Fullstack Template for Polkadot
                 </h1>
                 <p className="max-w-[700px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed ">
-                  A fully-loaded Web3 template that scales with Next.js. The best of
-                  Polkadot and Next.js, combined into a seamless experience.
+                  A fully-loaded Web3 template that scales with Next.js. The
+                  best of Polkadot and Next.js, combined into a seamless
+                  experience.
                 </p>
                 <div className="flex flex-col gap-2 min-[400px]:flex-row">
                   <ButtonLink size="lg" to="/getting-started">
                     Get Started{" "}
                   </ButtonLink>
-                  <ButtonLink target="_blank" size="lg" variant="outline" to="https://github.com/headline-design/dotstack">
-                  <IconGithub/>  Github
+                  <ButtonLink
+                    target="_blank"
+                    size="lg"
+                    variant="outline"
+                    to="https://github.com/headline-design/dotstack"
+                  >
+                    <IconGithub /> Github
                   </ButtonLink>
                 </div>
               </div>
@@ -43,7 +49,7 @@ export default function MainView2() {
                   src="/Polkadot_Logo_Vertical_Pink_Black.svg"
                   width="550"
                 />
-                 <img
+                <img
                   alt="Image"
                   className="hidden dark:block aspect-video overflow-hidden rounded-xl object-contain object-center border"
                   height="310"
@@ -116,17 +122,17 @@ export default function MainView2() {
         </section>
         <section className="w-full py-12 md:py-24 lg:py-32 border-t border-b">
           <div className="container grid items-center justify-center gap-4 px-4 text-center md:px-6">
-           <DemoHome />
-           {session ? (
-                  <>
-                    <SIWSDetails user={session?.user} signOut={signOut} />
-                  </>
-                ) : (
-                  <div className="flex flex-col items-center justify-center">
-                    <IconShield className="h-20 w-20" />
-                    <span> Connect your wallet to see your SIWA details. </span>
-                  </div>
-                )}
+            <DemoHome />
+            {session ? (
+              <>
+                <SIWSDetails user={session?.user} signOut={signOut} />
+              </>
+            ) : (
+              <div className="flex flex-col items-center justify-center">
+                <IconShieldGlobal className="h-20 w-20" />
+                <span> Connect your wallet to see your SIWA details. </span>
+              </div>
+            )}
           </div>
         </section>
 

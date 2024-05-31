@@ -1,18 +1,13 @@
-import React, { memo, useCallback, Suspense, useState } from "react";
-import { QueryClientProvider } from "@tanstack/react-query";
+import React, { memo, Suspense, useState } from "react";
 import { ThemeProvider } from "next-themes";
 import { useLocation } from "react-router-dom";
 import { Header } from "../layout/header";
 
 const ProviderLayout = ({
-  queryClient,
   children,
 }: {
-  queryClient: any;
   children: React.ReactNode;
 }) => {
-  const location = useLocation();
-  const [loadingState, setLoadingState] = useState(true);
 
   return (
     <React.StrictMode>
