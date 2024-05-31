@@ -4,9 +4,9 @@ import { W3FLogo } from "@/dashboard/components/assets/W3FLogo"
 import { MadeByTalisman } from "@/dashboard/components/assets/MadeByTalisman"
 import { TalismanLogo } from "@/dashboard/components/assets/TalismanLogo"
 
-export default function Home() {
+export default function DemoHome() {
   return (
-    <main className={`flex min-h-screen flex-col items-center justify-between py-24 px-4 lg:px-24`}>
+    <div className={`flex min-h-screen flex-col items-center justify-between py-24 px-4 lg:px-24`}>
       <div className="w-full max-w-4xl flex gap-8 flex-col lg:flex-row items-center lg:items-start">
         <div className="w-full p-4 flex flex-col items-center lg:items-start gap-2 text-center lg:text-left h-full lg:min-h-[384px]">
           <h1 className="text-foreground  text-5xl font-medium font-unbounded">SIWS</h1>
@@ -44,6 +44,6 @@ export default function Home() {
       <div className="mt-12 px-4 flex justify-center lg:justify-end w-full max-w-4xl">
         <MadeByTalisman />
       </div>
-    </main>
+    </div>
   )
 }
