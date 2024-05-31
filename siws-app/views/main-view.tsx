@@ -3,8 +3,8 @@ import { Link } from "react-router-dom";
 import { ButtonLink } from "@/siws-app/components/ui/button-link";
 import { IconGithub, IconShield } from "../icons";
 import { signOut, useSession } from "next-auth/react";
-import Home from "./home";
 import SIWSDetails from "./siws-details";
+import Home from "./home";
 
 export default function MainView2() {
   const { data: session } = useSession();
