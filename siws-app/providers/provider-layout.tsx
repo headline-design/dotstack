@@ -2,8 +2,7 @@ import React, { memo, useCallback, Suspense, useState } from "react";
 import { QueryClientProvider } from "@tanstack/react-query";
 import { ThemeProvider } from "next-themes";
 import { useLocation } from "react-router-dom";
-import { Header } from "../header";
-import { Footer } from "../footer";
+import { Header } from "../layout/header";
 
 const ProviderLayout = ({
   queryClient,

@@ -1,5 +1,5 @@
 {
-  "name": "siws-demo",
+  "name": "dotstack",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -55,6 +55,7 @@
   "devDependencies": {
     "@polkadot/api-contract": "11.2.1",
     "@prisma/client": "^5.5.2",
+    "@tailwindcss/typography": "^0.5.12",
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",

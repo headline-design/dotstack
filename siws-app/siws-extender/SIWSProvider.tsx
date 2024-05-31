@@ -123,27 +123,11 @@ export const SIWSProvider = ({
       const injectedExtension = await web3FromSource(selectedAccount.meta.source);
       const signed = await siwsMessage.sign(injectedExtension);
 
-      // Verify SIWS
-      const verifyRes = await fetch("/api/verify", {
-        method: "POST",
-        body: JSON.stringify({ ...signed, address: baseAddress.toSs58(0) }),
-      })
-      const verified = await verifyRes.json()
-
+      // Verify SIWS signature
       const message = signed.message;
       const signature = signed.signature;
       const address = baseAddress.toSs58(0);
 
-      const check2 = await verifySIWS(message, signature, address).then((res) =>{
-        console.log("res", res)
-        return res
-      }).catch((e) => {
-        console.log("e", e)
-        return e
-      } )
-      console.log("check2", check2)
-
-      // Verify signature
       if (!(await siwsConfig.verifyMessage({message, signature, address}))) {
         throw new Error("Error verifying SIWS signature");
       }
@@ -204,3 +188,4 @@ export const SIWSProvider = ({
     </SIWSContext.Provider>
   );
 };
+
