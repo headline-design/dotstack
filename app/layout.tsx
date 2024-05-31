@@ -5,11 +5,11 @@ import { inter, unbounded } from "@/dashboard/components/fonts"
 import ClientBoundary from "@/dashboard/client-boundary";
 
 export const metadata: Metadata = {
-  title: "SIWS",
+  title: "DotStack",
   description: "Sign In With Substrate",
   icons: "/favicon.ico",
   openGraph: {
-    title: "SIWS",
+    title: "DotStack",
     description: "Sign In With Substrate",
     images: [
       {
@@ -19,7 +19,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "SIWS",
+    title: "DotStack",
     description: "Sign In With Substrate",
     images: ["/dotstack-og.png"],
     creator: "@headline_crypto",

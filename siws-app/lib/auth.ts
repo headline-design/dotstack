@@ -1,6 +1,6 @@
 import NextAuth, { getServerSession, type NextAuthOptions } from 'next-auth';
 import GoogleProvider from 'next-auth/providers/google';
-import GitHubProvider from 'next-auth/providers/github';
+import GitHubProvider, { GithubProfile } from 'next-auth/providers/github';
 import DiscordProvider from 'next-auth/providers/discord';
 import TwitterProvider from 'next-auth/providers/twitter';
 import { PrismaAdapter } from '@next-auth/prisma-adapter';
@@ -104,7 +104,6 @@ export const authOptions: NextAuthOptions = {
 
               return profile;
             } else {
-              console.log('wallet', wallet);
 
               const user = await prisma.user.findUnique({
                 where: { id: wallet.userId },
@@ -156,8 +155,7 @@ export const authOptions: NextAuthOptions = {
           scope: 'read:user user:email repo', // Include 'repo' in the scope
         },
       },
-      profile: (profile: Profile) => {
-        // Corrected this line
+      profile: (profile: GithubProfile) => {
         return {
           id: profile.id.toString(),
           name: profile.name ?? profile.login,
@@ -303,7 +301,7 @@ export const authOptions: NextAuthOptions = {
       // Store GitHub access token and ID when signing in with GitHub
       if (account?.provider === 'github') {
         token.accessToken = account.access_token; // GitHub access token
-        token.githubId = profile.id.toString(); // GitHub user ID
+        token.githubId = profile?.id?.toString(); // GitHub user ID
       }
 
       if (user) {

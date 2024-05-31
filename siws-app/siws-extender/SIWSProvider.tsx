@@ -1,9 +1,14 @@
 import { ReactNode, useState, useEffect } from "react";
 import { useQuery } from "@tanstack/react-query";
-import { SIWSContext, SIWSConfig, StatusState, SIWSSession } from "./SIWSContext";
+import {
+  SIWSContext,
+  SIWSConfig,
+  StatusState,
+  SIWSSession,
+} from "./SIWSContext";
 import { InjectedAccountWithMeta } from "@polkadot/extension-inject/types";
 import { useAzeroID } from "@/dashboard/context/AzeroIDResolver";
-import { Address, SiwsMessage, } from "@talismn/siws";
+import { Address, SiwsMessage } from "@talismn/siws";
 import { useToast } from "../components/ui/use-toast";
 import { SIWS_HOSTNAME, SIWS_URI } from "../lib/constants";
 import { ToastAction } from "../components/ui/toast";
@@ -29,11 +34,13 @@ export const SIWSProvider = ({
   onSignOut,
   onCancel,
   onSignedIn,
-  accounts ,
+  accounts,
   ...siwsConfig
 }: Props) => {
   const [status, setStatus] = useState<StatusState>(StatusState.READY);
-  const [selectedAccount, setSelectedAccount] = useState<InjectedAccountWithMeta | undefined>(accounts?.length === 1 ? accounts[0] : undefined);
+  const [selectedAccount, setSelectedAccount] = useState<
+    InjectedAccountWithMeta | undefined
+  >(accounts?.length === 1 ? accounts[0] : undefined);
   const [signingIn, setSigningIn] = useState(false);
   const resetStatus = () => setStatus(StatusState.READY);
 
@@ -45,7 +52,10 @@ export const SIWSProvider = ({
 
   const session = useQuery({
     queryKey: ["ckSiwsSession"],
-    queryFn: () => siwsConfig.getSession(),
+    queryFn: async () => {
+      const sessionData = await siwsConfig.getSession();
+      return sessionData ?? null; // Ensure a non-undefined value is returned
+    },
     refetchInterval: sessionRefetchInterval,
   });
 
@@ -86,7 +96,6 @@ export const SIWSProvider = ({
   }, [accounts]);
 
   const signIn = async () => {
-
     try {
       dismiss();
       if (!selectedAccount) throw new Error("No account selected!");
@@ -120,7 +129,9 @@ export const SIWSProvider = ({
       });
 
       const { web3FromSource } = await import("@polkadot/extension-dapp");
-      const injectedExtension = await web3FromSource(selectedAccount.meta.source);
+      const injectedExtension = await web3FromSource(
+        selectedAccount.meta.source
+      );
       const signed = await siwsMessage.sign(injectedExtension);
 
       // Verify SIWS signature
@@ -128,7 +139,7 @@ export const SIWSProvider = ({
       const signature = signed.signature;
       const address = baseAddress.toSs58(0);
 
-      if (!(await siwsConfig.verifyMessage({message, signature, address}))) {
+      if (!(await siwsConfig.verifyMessage({ message, signature, address }))) {
         throw new Error("Error verifying SIWS signature");
       }
 
@@ -142,7 +153,6 @@ export const SIWSProvider = ({
       return data as SIWSSession;
 
       // Hooray we're signed in!
-
     } catch (e: any) {
       toast({
         title: "Uh oh! Couldn't sign in.",
@@ -188,4 +198,3 @@ export const SIWSProvider = ({
     </SIWSContext.Provider>
   );
 };
-

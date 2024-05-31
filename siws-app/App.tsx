@@ -3,7 +3,7 @@
 import { Toaster } from "@/dashboard/components/ui/toaster";
 import { Analytics } from "@vercel/analytics/react";
 import { AzeroIDResolverProvider } from "@/dashboard/context/AzeroIDResolver";
-import React, { lazy, useMemo, useState } from "react";
+import React, { useMemo } from "react";
 import Web3Provider from "@/dashboard/context/web3Context";
 import ScrollToTop from "@/siws-app/components/scroll-to-top";
 import ErrorBoundary from "@/siws-app/lib/error-boundary";
@@ -24,17 +24,16 @@ import {
   Route,
   RouterProvider,
   Outlet,
-  useLocation,
 } from "react-router-dom";
 
-function App(queryClient) {
+function App() {
   const routes = useMemo(
     () => [
       <Route
         key="main"
         path=""
         element={
-          <ProviderLayout queryClient={queryClient}>
+          <ProviderLayout >
             <ErrorBoundary fallbackRender={({ error }) => <ErrorView />}>
               <ScrollToTop />
               <Outlet />
@@ -53,7 +52,7 @@ function App(queryClient) {
       </Route>,
       <Route key="error" path="*" element={<ErrorView />} />,
     ],
-    [queryClient]
+    []
   );
 
   const memoizedRouter = useMemo(
