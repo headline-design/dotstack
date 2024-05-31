@@ -11,7 +11,6 @@ import { getSearchParams } from '@/dashboard/lib/utils';
 import { hashToken } from './crypto';
 import { ratelimit } from './upstash';
 import credentialsProvider from 'next-auth/providers/credentials';
-import { getCsrfToken } from 'next-auth/react';
 import {  verifySIWS } from '@talismn/siws';
 
 const VERCEL_DEPLOYMENT = !!process.env.VERCEL_URL;

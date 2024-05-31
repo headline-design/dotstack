@@ -47,29 +47,23 @@ export default function SIWSDetails({ user, signOut }) {
                   <div className="font-semibold">Authentication Details</div>
                   <ul className="grid gap-3">
                     <li className="flex items-center justify-between">
-                      <span className="text-secondary">Wallet Address</span>
+                      <span className="text-muted-foreground">Wallet Address</span>
                       <span>{shorten(user?.wallets[0]?.address)}</span>
                     </li>
                     <li className="flex items-center justify-between">
-                      <span className="text-secondary">Hex Address</span>
-                      <span className="text-ellipsis overflow-hidden">
-                        {shorten(user?.wallets[0]?.hexAddress)}
-                      </span>
-                    </li>
-                    <li className="flex items-center justify-between">
-                      <span className="text-secondary">Database</span>
+                      <span className="text-muted-foreground">Database</span>
                       <span className="text-ellipsis overflow-hidden">
                         Postgres
                       </span>
                     </li>
                     <li className="flex items-center justify-between">
-                      <span className="text-secondary">DB Provider</span>
+                      <span className="text-muted-foreground">DB Provider</span>
                       <span className="text-ellipsis overflow-hidden">
                         Supabase
                       </span>
                     </li>
                     <li className="flex items-center justify-between">
-                      <span className="text-secondary">ORM</span>
+                      <span className="text-muted-foreground">ORM</span>
                       <span className="text-ellipsis overflow-hidden">
                         Prisma
                       </span>
@@ -78,7 +72,7 @@ export default function SIWSDetails({ user, signOut }) {
                   <Separator className="my-2" />
                   <ul className="grid gap-3">
                     <li className="flex items-center justify-between font-semibold">
-                      <span className="text-secondary">Connection Status</span>
+                      <span className="text-muted-foreground">Connection Status</span>
                       <span>{user ? "Connected" : "Disconnected"}</span>
                     </li>
                   </ul>
@@ -88,7 +82,7 @@ export default function SIWSDetails({ user, signOut }) {
                   <div className="font-semibold">Session Information</div>
                   <dl className="grid gap-3">
                     <div className="flex items-center justify-between">
-                      <dt className="flex items-center gap-1 text-secondary">
+                      <dt className="flex items-center gap-1 text-muted-foreground">
                         <CreditCardIcon className="h-4 w-4" />
                         Session ID
                       </dt>
@@ -98,7 +92,7 @@ export default function SIWSDetails({ user, signOut }) {
                 </div>
               </CardContent>
               <CardFooter className="flex flex-row items-center border-t bg-muted/50 px-6 py-3">
-                <div className="text-xs text-secondary">
+                <div className="text-xs text-muted-foreground">
                   Status: {user ? "Active" : "Inactive"}
                   <time dateTime={new Date().toISOString()}>
                     {new Date().toLocaleTimeString()}
@@ -120,7 +114,7 @@ export default function SIWSDetails({ user, signOut }) {
         <div className="flex flex-col items-center justify-center h-full">
           <div className="text-center">
             <h1 className="text-2xl font-semibold">No SIWS Wallet Found</h1>
-            <p className="text-secondary">
+            <p className="text-muted-foreground">
               Please connect your SIWS wallet to view details.
             </p>
           </div>

@@ -1,8 +1,6 @@
 @tailwind base;
-
-body {
-  @apply bg-stone-950;
-}
+@tailwind components;
+@tailwind utilities;
 
 /* width */
 ::-webkit-scrollbar {
@@ -50,12 +48,8 @@ body {
   color: transparent;
 }
 
-@tailwind components;
-@tailwind utilities;
 
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+
 
 
 
