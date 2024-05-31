@@ -5,8 +5,6 @@ import { IconGithub, IconShieldGlobal } from "../icons";
 import DemoHome from "./demo-home";
 
 export default function MainView2() {
-
-
   return (
     <>
       <main className="flex-1">
@@ -120,18 +118,17 @@ export default function MainView2() {
         </section>
         <section className="w-full py-12 md:py-24 lg:py-32 border-t border-b">
           <div className="container grid items-center gap-6 px-4 md:px-6">
-          <div className="flex flex-col items-center justify-center space-y-4 text-center">
-    <div className="space-y-2">
-      <div className="inline-block rounded-lg bg-muted px-3 py-1 text-sm ">
-        Session Auth on Substrate with SIWS
-      </div>
-      <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">
-       Secure from end-to-end
-      </h2>
-    </div>
-  </div>
+            <div className="flex flex-col items-center justify-center space-y-4 text-center">
+              <div className="space-y-2">
+                <div className="inline-block rounded-lg bg-muted px-3 py-1 text-sm ">
+                  Session Auth on Substrate with SIWS
+                </div>
+                <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">
+                  Secure from end-to-end
+                </h2>
+              </div>
+            </div>
             <DemoHome />
-
           </div>
         </section>
 

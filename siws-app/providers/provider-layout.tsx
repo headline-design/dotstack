@@ -1,6 +1,5 @@
 import React, { memo, Suspense, useState } from "react";
 import { ThemeProvider } from "next-themes";
-import { useLocation } from "react-router-dom";
 import { Header } from "../layout/header";
 
 const ProviderLayout = ({
