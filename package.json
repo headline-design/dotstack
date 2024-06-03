@@ -51,7 +51,6 @@
     "tailwind-merge": "^2.0.0",
     "tailwindcss-animate": "^1.0.7",
     "truncate-middle": "^1.0.6",
-    "uuid": "^9.0.0",
     "vaul": "^0.7.0"
   },
   "devDependencies": {

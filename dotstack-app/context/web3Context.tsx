@@ -168,18 +168,18 @@ const Web3ChildProvider: FC<PropsWithChildren<{}>> = ({ children }) => {
       return res.text();
     },
 
-    createMessage: ({ nonce, address }: SIWSCreateMessageArgs) =>
+    createMessage: ({ nonce, address  }: SIWSCreateMessageArgs) =>
       new SiwsMessage({
         domain: SIWS_HOSTNAME,
         uri: SIWS_URI,
         // use prefix of chain your dapp is on:
-        address: address.toSs58(0),
-        nonce: nonce?.data,
+        address: (address as any).toSs58(0),
+        nonce: (nonce as any)?.data,
         statement: "Welcome to SIWS! Sign in to see how it works.",
         chainName: "Polkadot",
         // expires in 2 mins
         expirationTime: new Date().getTime() + 2 * 60 * 1000,
-        azeroId: resolve(address.toSs58())?.a0id,
+        azeroId: resolve((address as any).toSs58())?.a0id,
       }).prepareMessage(),
 
     verifyMessage: async ({

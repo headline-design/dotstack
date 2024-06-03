@@ -51,7 +51,7 @@ export const Profile: React.FC<Props> = ({ account, token, onSignOut }) => {
       </p>
 
       <div className="grid gap-3 mt-4">
-        <Button onClick={() => generate(token)}>Generate Random Text</Button>
+        <Button onClick={() => generate()}>Generate Random Text</Button>
         <div className="h-8 w-full flex items-center justify-center">
           {!!loading ? (
             <Skeleton className="w-44 h-6" />

@@ -1,8 +1,5 @@
 "use client"
 
-import { v4 as uuidv4 } from 'uuid';
-import { getLocalStorage } from '@/dotstack-app/localStorage/localStorage';
-
 export const NONE_YET = 'none yet';
 export const PREFERRED_DECIMALS = 2;
 export const DEBOUNCE_MS = 800;
@@ -58,12 +55,6 @@ export const Themes = {
   DARK: 'dark',
   LIGHT: 'light',
 };
-
-export const User = {
-  myAddress: JSON.parse(String(getLocalStorage(PIPECONNECT_STATE_KEY)))?.myAddress || '',
-};
-
-export const uuid = uuidv4;
 
 export const Languages = {
   EN: 'English',

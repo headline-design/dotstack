@@ -95,7 +95,7 @@ export const SIWSProvider = ({
     }
   }, [accounts]);
 
-  const signIn = async () => {
+  const signIn: any = async () => {
     try {
       dismiss();
       if (!selectedAccount) throw new Error("No account selected!");
@@ -192,6 +192,7 @@ export const SIWSProvider = ({
         selectedAccount,
         signingIn,
         onCancel,
+        onError,
       }}
     >
       {children}

@@ -1,12 +1,12 @@
-import { createContext } from 'react';
-import { useQuery } from '@tanstack/react-query';
+import { createContext } from "react";
+import { useQuery } from "@tanstack/react-query";
 
 export enum StatusState {
-  READY = 'ready',
-  LOADING = 'loading',
-  SUCCESS = 'success',
-  REJECTED = 'rejected',
-  ERROR = 'error',
+  READY = "ready",
+  LOADING = "loading",
+  SUCCESS = "success",
+  REJECTED = "rejected",
+  ERROR = "error",
 }
 
 export type SIWSSession = {
@@ -16,10 +16,7 @@ export type SIWSSession = {
 export type SIWSConfig = {
   // Required
   getNonce: () => Promise<string>;
-  createMessage: (args: {
-    nonce: string;
-    address: string;
-  }) => string;
+  createMessage: (args: { nonce: string; address: string }) => string;
   verifyMessage: (args: {
     message: string | Uint8Array;
     signature: string;
@@ -45,7 +42,11 @@ export type SIWSContextValue = Required<SIWSConfig> & {
   resetStatus: () => void;
   signOut: () => Promise<boolean>;
   onError: (error: any) => void;
-accounts: string[];
+  accounts: any;
+  setSelectedAccount: any;
+  selectedAccount: any;
+  signingIn: any;
+  onCancel: any;
 };
 
 export const SIWSContext = createContext<SIWSContextValue | null>(null);

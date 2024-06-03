@@ -4,8 +4,6 @@ import { getSession } from "@/dotstack-app/lib/auth";
 
 export const GET = async (req: NextRequest): Promise<NextResponse> => {
   const session = await getSession();
-  console.log("---HELLO WORLD---");
-  console.log("Session", session);
 
   if (!session || !session.user) {
     console.log("Unauthorized");

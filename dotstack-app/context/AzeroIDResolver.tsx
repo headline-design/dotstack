@@ -130,7 +130,7 @@ export const AzeroIDResolverProvider: React.FC<React.PropsWithChildren> = ({ chi
       setAddressToA0Id((prev) =>
         res.a0id && res.address ? { ...prev, [res.address?.toSs58() ?? "a"]: res.a0id } : prev
       )
-      setA0IdToAddress((prev) =>
+      setA0IdToAddress((prev: any) =>
         res.a0id && res.address ? { ...prev, [res.a0id]: res.address ?? "a" } : prev
       )
     })

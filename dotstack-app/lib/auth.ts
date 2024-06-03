@@ -64,7 +64,7 @@ export const authOptions: NextAuthOptions = {
           const result = await verifySIWS(
             credentials?.message,
             credentials?.signature,
-            credentials?.address
+            (credentials as any)?.address
           )
             .then((res) => {
               console.log("res", res);

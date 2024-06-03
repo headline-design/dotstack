@@ -102,7 +102,7 @@ export const WarningToast = ({ message, dismiss }) => (
 
 export function toast(message) {
   return sonnerToast.custom(
-    (t) => <DefaultToast message={message} dismiss={() => sonnerToast.dismiss(t.id)} />,
+    (t: any) => <DefaultToast message={message} dismiss={() => sonnerToast.dismiss(t.id)} />,
     { duration: 5000 },
   );
 }
@@ -110,25 +110,25 @@ export function toast(message) {
 // Extending the toast function with specific types
 toast.success = (message) =>
   sonnerToast.custom(
-    (t) => <SuccessToast message={message} dismiss={() => sonnerToast.dismiss(t.id)} />,
+    (t: any) => <SuccessToast message={message} dismiss={() => sonnerToast.dismiss(t.id)} />,
     { duration: 5000 },
   );
 
 toast.error = (message) =>
   sonnerToast.custom(
-    (t) => <ErrorToast message={message} dismiss={() => sonnerToast.dismiss(t.id)} />,
+    (t: any) => <ErrorToast message={message} dismiss={() => sonnerToast.dismiss(t.id)} />,
     { duration: 5000 },
   );
 
 toast.warning = (message) =>
   sonnerToast.custom(
-    (t) => <WarningToast message={message} dismiss={() => sonnerToast.dismiss(t.id)} />,
+    (t: any) => <WarningToast message={message} dismiss={() => sonnerToast.dismiss(t.id)} />,
     { duration: 5000 },
   );
 
 toast.info = (message) =>
   sonnerToast.custom(
-    (t) => <DefaultToast message={message} dismiss={() => sonnerToast.dismiss(t.id)} />,
+    (t: any) => <DefaultToast message={message} dismiss={() => sonnerToast.dismiss(t.id)} />,
     { duration: 5000 },
   );
 
