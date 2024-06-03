@@ -5,6 +5,11 @@ const nextConfig = {
     ignoreDuringBuilds: true,
   },
 
+  experimental: {
+    esmExternals: true,
+  },
+  transpilePackages: ['@polkadot/types', '@polkadot/api', '@azns/resolver-core'],
+
   typescript: {
     ignoreBuildErrors: true,
   },

@@ -11,6 +11,7 @@
     "strict": true,
     "noEmit": true,
     "esModuleInterop": true,
+    "strictNullChecks": false,
     "module": "esnext",
     "moduleResolution": "bundler",
     "noImplicitAny": false,
@@ -20,8 +21,8 @@
     "incremental": true,
     "paths": {
       "@/*": ["./*"],
-      "@/dashboard": ["./siws-app/"],
-      "@/dashboard/*": ["./siws-app/*"],
+      "@/dashboard": ["dotstack-app"],
+      "@/dashboard/*": ["dotstack-app/*"],
     },
     "plugins": [
       {

@@ -1,5 +1,5 @@
-import { getSession, withAuth } from '@/dashboard/lib/auth';
-import prisma from '@/dashboard/lib/prisma';
+import { getSession, withAuth } from '@/dotstack-app/lib/auth';
+import prisma from '@/dotstack-app/lib/prisma';
 import { NextResponse } from 'next/server';
 
 // GET user data

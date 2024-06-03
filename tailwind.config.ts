@@ -1,4 +1,4 @@
-import { unbounded } from "./siws-app/components/fonts";
+import { unbounded } from "./dotstack-app/components/fonts";
 
 /** @type {import('tailwindcss').Config} */
 const { fontFamily } = require("tailwindcss/defaultTheme");
@@ -7,7 +7,7 @@ module.exports = {
   content: [
     "app/**/*.{ts,tsx}",
     "components/**/*.{ts,tsx}",
-    "./siws-app/**/**/*.{js,ts,jsx,tsx,mdx}"
+    "./dotstack-app/**/**/*.{js,ts,jsx,tsx,mdx}"
   ],
   theme: {
     container: {
@@ -95,4 +95,5 @@ module.exports = {
   },
   plugins: [require("tailwindcss-animate"), require("@tailwindcss/typography")],
 }
+
 

@@ -1,4 +1,4 @@
-import { authOptions } from "@/dashboard/lib/auth";
+import { authOptions } from "@/dotstack-app/lib/auth";
 import NextAuth from "next-auth/next";
 
 const handler = NextAuth(authOptions);

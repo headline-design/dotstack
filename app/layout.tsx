@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 import "@/dashboard/styles/globals.css";
 import App from "./app";
-import { inter, unbounded } from "@/dashboard/components/fonts"
-import ClientBoundary from "@/dashboard/client-boundary";
+import { inter, unbounded } from "@/dotstack-app/components/fonts"
+import ClientBoundary from "@/dotstack-app/client-boundary";
 
 export const metadata: Metadata = {
   title: "DotStack",

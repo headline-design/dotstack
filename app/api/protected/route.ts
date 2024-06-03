@@ -1,29 +1,20 @@
-import { NextRequest, NextResponse } from 'next/server';
-import jwt from 'jsonwebtoken';
-import crypto from 'crypto';
+import { NextRequest, NextResponse } from "next/server";
+import crypto from "crypto";
+import { getSession } from "@/dotstack-app/lib/auth";
 
-// Verify JWT
-const verifyJWT = (token: string) => {
-  try {
-    jwt.verify(token, process.env.JWT_SECRET!);
-    return true;
-  } catch (e) {
-    return false;
-  }
-};
-
-// GET handler (or POST, depending on your use case)
 export const GET = async (req: NextRequest): Promise<NextResponse> => {
-  const authorizationHeader = req.headers.get('authorization');
-  if (typeof authorizationHeader !== 'string') {
-    return NextResponse.json({ error: "You are not logged in!" }, { status: 401 });
+  const session = await getSession();
+  console.log("---HELLO WORLD---");
+  console.log("Session", session);
+
+  if (!session || !session.user) {
+    console.log("Unauthorized");
+    return new NextResponse("Failed to fetch user data", {
+      status: 500,
+      headers: { "Content-Type": "application/json" },
+    });
   }
 
-  const jwtToken = authorizationHeader.split(" ")[1];
-  if (!verifyJWT(jwtToken)) {
-    return NextResponse.json({ error: "You are not logged in!" }, { status: 401 });
-  }
-
-  const randomText = crypto.randomBytes(8).toString('hex');
+  const randomText = crypto.randomBytes(8).toString("hex");
   return NextResponse.json({ randomText });
 };

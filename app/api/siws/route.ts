@@ -1,11 +1,11 @@
-import { tap } from '@/dashboard/lib/utils';
-import prisma from '@/dashboard/lib/prisma';
+import { tap } from '@/dotstack-app/lib/utils';
+import prisma from '@/dotstack-app/lib/prisma';
 import { NextRequest, NextResponse } from 'next/server';
-import SiwsSession from '@/dashboard/lib/siws-session';
-import { getSession } from '@/dashboard/lib/auth';
-import { generateNonce } from '@/siws-app/siws-extender/utils';
+import SiwsSession from '@/dotstack-app/lib/siws-session';
+import { getSession } from '@/dotstack-app/lib/auth';
+import { generateNonce } from '@/dotstack-app/siws-extender/utils';
 import { verifySIWS } from '@talismn/siws';
-import { SiwsErrorType } from '@/siws-app/siws-extender/types';
+import { SiwsErrorType } from '@/dotstack-app/siws-extender/types';
 
 // Verify SIWS
 const verifySIWSMessage = async (message: string, signature: string, address: string) => {
