@@ -21,8 +21,8 @@
     "incremental": true,
     "paths": {
       "@/*": ["./*"],
-      "@/dashboard": ["dotstack-app"],
-      "@/dashboard/*": ["dotstack-app/*"],
+      "@/dashboard": ["./dotstack-app"],
+      "@/dashboard/*": ["./dotstack-app/*"],
     },
     "plugins": [
       {
